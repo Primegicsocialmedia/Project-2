@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --deepblue-500: #023047;
+  --amber-500: #fb8500;
+  --alabaster-500: #e0e1dd;
+}
+
+.bg-deepblue {
+  background-color: var(--deepblue-500);
+}
+.bg-amber {
+  background-color: var(--amber-500);
+}
+.text-alabaster {
+  color: var(--alabaster-500);
+}
