@@ -31,6 +31,8 @@ const App = () => {
       <ul>
         {pets.map((pet) => (
           <Pet
+          setPets={setPets}
+          id={pet.id}
             key={pet.id}
             name={pet.name}
             species={pet.species}
