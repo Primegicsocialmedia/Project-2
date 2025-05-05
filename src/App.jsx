@@ -1,12 +1,43 @@
-import React from 'react'
+import React from "react";
+import Header from "./components/Header";
+import TimeArea from "./components/TimeArea";
+import Footer from "./components/Footer";
+import Pet from "./components/Pet";
+import { useState } from "react";
+import LikeArea from "./components/LikeArea";
+
+
+
+const pets = [
+  { name: "Meowsalot", species: "cat", age: "5", id: 123456789 },
+  { name: "Barksalot", species: "dog", age: "3", id: 987654321 },
+  { name: "Fluffy", species: "rabbit", age: "2", id: 123123123 },
+  { name: "Purrsloud", species: "cat", age: "1", id: 456456456 },
+  { name: "Paws", species: "dog", age: "6", id: 789789789 }
+]
 
 const App = () => {
   return (
-    <div className='bg-deepblue p-12'>
-      <h1 className="text-5xl font-bold text-white">This is the template with TailwindCSS</h1>
-      <button className='bg-amber text-alabaster text-2xl font-bold mt-12 rounded px-6 py-4'>Click here !</button>
-    </div>
-  )
-}
+    <>
+      <Header />
+      <LikeArea />
+      <TimeArea />
+      
+      <ul>
+        {pets.map((pet) => (
+          <Pet
+            key={pet.id}
+            name={pet.name}
+            species={pet.species}
+            age={pet.age}
+          />
+        ))}
 
-export default App
+      </ul>
+   
+      <Footer />
+    </>
+  );
+};
+
+export default App;
