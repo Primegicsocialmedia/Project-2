@@ -20,16 +20,19 @@ const AddPetForm = (props) => {
       <fieldset>
         <legend className="p-2 font-bold">Add New Pet</legend>
         <input
+          className="m-2 p-2 border-2"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
         />
         <input
+          className="m-2 p-2 border-2"
           value={species}
           onChange={(e) => setSpecies(e.target.value)}
           placeholder="species"
         />
         <input
+          className="m-2 p-2 border-2"
           value={age}
           onChange={(e) => setAge(e.target.value)}
           placeholder="age in years"
