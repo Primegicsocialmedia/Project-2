@@ -1,9 +1,9 @@
-import React from "react";
+import React  from "react";
 import Header from "./components/Header";
 import TimeArea from "./components/TimeArea";
 import Footer from "./components/Footer";
 import Pet from "./components/Pet";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import LikeArea from "./components/LikeArea";
 import AddPetForm from "./components/AddPetForm";
 
@@ -14,13 +14,20 @@ import AddPetForm from "./components/AddPetForm";
 const App = () => {
 
 
-  const [pets,setPets]= useState([
-    { name: "Meowsalot", species: "cat", age: "5", id: 123456789 },
-    { name: "Barksalot", species: "dog", age: "3", id: 987654321 },
-    { name: "Fluffy", species: "rabbit", age: "2", id: 123123123 },
-    { name: "Purrsloud", species: "cat", age: "1", id: 456456456 },
-    { name: "Paws", species: "dog", age: "6", id: 789789789 }
-  ])
+  const [pets, setPets] = useState([])
+  
+  // only run once the first time this component is rendered
+  useEffect(() => {
+    if (localStorage.getItem("examplePetData")) {
+      setPets(JSON.parse(localStorage.getItem("examplePetData")))
+    }
+  }, [])
+  
+  // run every time our pet state changes
+  useEffect(() => {
+    localStorage.setItem("examplePetData", JSON.stringify(pets))
+  }, [pets])
+  
 
   return (
     <>
